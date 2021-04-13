@@ -1,7 +1,5 @@
 # A Personal Website
 
-![img](preview/preview.png)
-
 Built with [Carbon Design System & Gatsby](https://github.com/carbon-design-system/gatsby-theme-carbon). Currently a work in progress...
 
 ```bash
