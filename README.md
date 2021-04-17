@@ -1,7 +1,7 @@
 ## NXYZ website deployment instructions
 
 It is assumed that the following components are installed:
-- [k3s](https://k3s.io/):
+- [k3s](https://k3s.io/)
 - [docker](https://www.docker.com/)
 
 ### Build and push services
