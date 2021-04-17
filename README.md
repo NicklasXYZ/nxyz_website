@@ -1,20 +1,38 @@
-# A Personal Website
+## NXYZ website deployment instructions
 
-Built with [Carbon Design System & Gatsby](https://github.com/carbon-design-system/gatsby-theme-carbon). Currently a work in progress...
+It is assumed that the following components are installed:
+- [k3s](https://k3s.io/):
+- [docker]https://www.docker.com/
+
+### Build and push services
+
+Assuming this repo `nxyz_website` has been cloned to the current directory enter into the `nxyz_website/services` directory. Build and push images to [dockerhub](https://hub.docker.com/):
 
 ```bash
-# For developement use 
-yarn dev
+cd nxyz_website/services
+make build-all && make push-all
 ```
 
-## Directories & Files
+### Generate Kubernetes manifests
 
-1.  **`/src`**:  Contains
+Generate all necessary manifests for deploying the built services:
 
-    - **data** Sidebar order and contents
-    - **images** Image storage
-    - **gatsby-theme-carbon** Directory for shadowing default `gatsby-theme-carbon` components
-    - **pages** All content. Each page is represented with an MDX file.
+```bash
+# Go back to the `nxyz_website` root directory 
+cd ..
 
-2.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby
-    site. Website site (metadata).
+# Install python dependencies
+pip install -r requirements.txt
+
+# Create kubernetes manifests
+make all-manifests
+```
+
+### Apply Kubernetes manifests
+
+Deploy the built services by applying the manifests that were placed in the `manifests` directory:
+
+```bash
+sudo k3s kubectl apply -f # Insert manifest directory here
+# ... Change and apply additional manifests in directory 'extra_manifests' manually
+```

@@ -1,0 +1,8 @@
+# Use locally pre-built base image
+FROM nicklasxyz/landingpage-dep:latest
+
+# Set container working directory
+WORKDIR /usr/landingpage
+
+# Start development server
+ENTRYPOINT yarn dev:clean

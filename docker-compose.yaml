@@ -1,0 +1,25 @@
+version: "3"
+
+# Docker compose file used solely for development purposes
+# The makefile in directory /svc should be used for production builds
+services:
+
+  dep: # Create base-image by installing all node dependencies
+    image: nicklasxyz/landingpage-dep:latest
+    build:
+      context: ./svc/static/landingpage
+      dockerfile: Dockerfile.base
+    container_name: dep0
+  
+  dev: # Start dev environment using pre-built base-image
+    restart: always
+    build:
+      context: ./svc/static/landingpage
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./svc/static/landingpage/landingpage/src:/usr/landingpage/src
+    container_name: dev0
+    depends_on: 
+      - dep
+    ports: # Default webserver port
+      - 8000:8000

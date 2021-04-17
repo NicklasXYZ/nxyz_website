@@ -1,0 +1,25 @@
+# BUILD STAGE 1: Use locally pre-built base image
+FROM nicklasxyz/landingpage-dep:latest AS landingpage-build
+
+# Copy in the landingpage files that we need for generating the static files
+COPY ./landingpage/src /usr/landingpage/src
+
+# Set container working directory
+WORKDIR /usr/landingpage
+
+RUN ls -la
+
+# Build production image
+RUN yarn build:clean
+
+# BUILD STAGE 2: Use nginx to serve generated static files
+FROM nginx:latest AS landingpage-serve
+
+# Copying in nginx.conf file specifying path to static files
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Set container working directory
+WORKDIR /usr/landingpage/public
+
+# This path below should also be set properly in the nginx.conf gile
+COPY --from=landingpage-build /usr/landingpage/public .

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k3s-nicklas-xyz
+  namespace: default
+spec:
+  secretName: k3s-nicklas-xyz-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: nicklas.xyz
+  dnsNames:
+  - nicklas.nxyz

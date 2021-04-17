@@ -1,0 +1,10 @@
+# Create a node base-image with all necessary node modules installed  
+FROM node:latest
+
+# Set container working directory
+WORKDIR /usr/landingpage
+
+# Install necessary dependencies
+COPY ./landingpage/package.json /usr/landingpage
+COPY ./landingpage/gatsby-config.js /usr/landingpage
+RUN yarn
