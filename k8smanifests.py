@@ -1,6 +1,6 @@
 """
 Python script for automatically generating a subset of the necessary Kubernetes
-manifests for the Sammen Om Demens (SOD) backend system.
+manifests for the NYXZ website.
 
 Resource: https://github.com/kubernetes-client/python/tree/master/kubernetes/docs
 
