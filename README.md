@@ -9,7 +9,7 @@ It is assumed that the following components are installed:
 Assuming this repo `nxyz_website` has been cloned to the current directory enter into the `nxyz_website/svc` directory. Build and push images to [dockerhub](https://hub.docker.com/):
 
 ```bash
-cd nxyz_website/services
+cd nxyz_website/svc
 make build-all && make push-all
 ```
 
