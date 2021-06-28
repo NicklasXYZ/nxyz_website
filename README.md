@@ -6,7 +6,7 @@ It is assumed that the following components are installed:
 
 ### Build and push services
 
-Assuming this repo `nxyz_website` has been cloned to the current directory enter into the `nxyz_website/services` directory. Build and push images to [dockerhub](https://hub.docker.com/):
+Assuming this repo `nxyz_website` has been cloned to the current directory enter into the `nxyz_website/svc` directory. Build and push images to [dockerhub](https://hub.docker.com/):
 
 ```bash
 cd nxyz_website/services
@@ -33,6 +33,5 @@ make all-manifests
 Deploy the built services by applying the manifests that were placed in the `manifests` directory:
 
 ```bash
-sudo k3s kubectl apply -f # Insert manifest directory here
-# ... Change and apply additional manifests in directory 'extra_manifests' manually
+k3s kubectl apply -f # Insert manifest directory here
 ```
