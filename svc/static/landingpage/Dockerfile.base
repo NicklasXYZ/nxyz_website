@@ -1,5 +1,5 @@
 # Create a node base-image with all necessary node modules installed  
-FROM node:latest
+FROM node:14
 
 # Set container working directory
 WORKDIR /usr/landingpage
