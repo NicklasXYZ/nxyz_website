@@ -51,7 +51,7 @@ build-nxyz-landingpage:
 	@echo ""; echo "--> Removing temporary directory '$($@_TMP)/*'"
 	rm -rf $($@_TMP)
 
-build-all: build-landingpage build-nxyz-landingpage
+build-all: build-landingpage-dep build-nxyz-landingpage
 
 push-nxyz-landingpage:
 	$(eval $@_TAG := $(LANDINGPAGE_SVC_TAG))
