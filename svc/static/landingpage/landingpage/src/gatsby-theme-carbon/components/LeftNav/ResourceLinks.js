@@ -2,6 +2,10 @@ import React from 'react';
 import ResourceLinks from 'gatsby-theme-carbon/src/components/LeftNav/ResourceLinks';
 
 const links = [
+  {
+    title: 'gleam-playground',
+    href: 'https://nicklas.xyz/apps/gleam-playground/',
+  },
   // {
   //   title: 'Github',
   //   href: 'https://github.com/carbon-design-system/gatsby-theme-carbon',
